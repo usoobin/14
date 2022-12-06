@@ -7,25 +7,32 @@
 	return 0;
 }*/
 
+struct Book
+{
+	int number;
+	char title[10];	
+}; 
+
 void main(void)
 {
-	char *pc = NULL; //pc는 포인터 
-	int i = 0;
+	struct Book *p;
 	
-	pc = (char*)malloc(100*sizeof(char)); //100byte가 malloc에 의해서 할당됨 
-	if(pc == NULL)
+	p = (struct Book*)malloc(2*sizeof(struct Book));
+	
+	if(p == NULL)
 	{
 		printf("메모리 할당 오류 \n");
 		exit(1); //프로그램 종료 
 	}
 	
-	for(i=0; i<26; i++)
-	{
-		pc[i] = 'a'+i;
-	}
+	p->number = 1;
+	strcpy(p->title, "C Programming");
 	
-	pc[i] = 0;
-	printf("%s\n", pc);
-	free(pc);	
+	(p+1)->number = 2;
+	strcpy((p+1)->title, "Electronics");
+	
+	
+	free(p);
+	return;	
 }
 
