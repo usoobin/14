@@ -9,14 +9,14 @@
 
 void main(void)
 {
-	char *pc = NULL;
+	char *pc = NULL; //pc는 포인터 
 	int i = 0;
 	
-	pc = (char*)malloc(100*sizeof(char));
+	pc = (char*)malloc(100*sizeof(char)); //100byte가 malloc에 의해서 할당됨 
 	if(pc == NULL)
 	{
 		printf("메모리 할당 오류 \n");
-		exit(1);
+		exit(1); //프로그램 종료 
 	}
 	
 	for(i=0; i<26; i++)
